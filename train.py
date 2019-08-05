@@ -1,16 +1,31 @@
+#!/usr/bin/env python3
+
+# PROGRAMMER: Martin
+# DATE CREATED: 05/08/2019                               
+# REVISED DATE: 05/08/2019
+# PURPOSE: trains model based on the parameters given in the terminal using one the
+#          pytorch pre trained deep models
+#
+#   Example call:
+#    python train.py --save_dir save/ --arch densenet121
+#
+# Imports python modules
+
 import torch
 from workspace_utils import active_session
 import numpy as np
 from utils import get_input_args, load_datasets
 from classifier import Classifier
 
+# functions initaites the training process fro the number of epochs provide in the terminal
+# default is 5
 def start_training(train_loader, test_loader, valid_loader, model, epochs, device, criterion, optimizer, learning_rate, arch):
     model.to(device)
     steps = 0
     print_every = 5
 
     # start the trainig and keep an active session
-    # print a statement to show the start of the training with the number of epochs
+    # print a statement to show the start of the training along with the number of epochs
     print("............................\nstatinng the training with:\n",
           "epochs: {}\ndevice: {}\nlearning rate: {}\narchitecture: {}\n".
           format(epochs, device, learning_rate, arch),
@@ -28,7 +43,7 @@ def start_training(train_loader, test_loader, valid_loader, model, epochs, devic
                 optimizer.step()
                 running_loss += loss.item()
     
-                # print the progress every 5 epochs
+            # print the progress every 5 epochs
             if steps%print_every == 0:
                 test_loss = 0
                 accuracy = 0
@@ -50,13 +65,14 @@ def start_training(train_loader, test_loader, valid_loader, model, epochs, devic
                             'Test loss: {:.3f}..'.format(test_loss/len(test_loader)),
                             'accuracy: {:.2f}%'.format(accuracy.item()/len(test_loader)*100))
             
-                    # set the model to traing mode
+                    # set the model to training mode
                     model.train()  
                 
 def main():
     
     args = get_input_args() # get the commndline arguements
-    # check if gpu arg is present and train with gpu else train with cpu
+
+    # check if the --gpu arg is present then train with gpu else train with cpu
     device = None
     if args.gpu == 'gpu':
         if torch.cuda.is_available():
@@ -67,7 +83,6 @@ def main():
         device = torch.device("cpu")
         
     classifier = Classifier(args, device) # initilize the train class with params   
-    # attempt to load saved stated
     classifier.load_checkpoint(args.save_dir) # load a saved model
     train_loader, test_loader, valid_loader, train_datasets = load_datasets(args.data_dir) # prepare and load the datasets
     start_training(
