@@ -1,4 +1,16 @@
-# Imports here
+#!usr/bin/env python3
+#
+# PROGRAMMER: Martin
+# DATE CREATED: 06/08/2019
+# REVISED DATE: 06/08/2019
+# PURPOSE: To predict the class of flowers the given input belongs to. 
+#          It uses the model trained from the train.py module
+#
+#       Example call:
+#           python predict.py --input file.jpg
+#
+# Import python modules here
+
 import torch
 from PIL import Image
 from utils import process_image, get_input_args
@@ -29,8 +41,7 @@ def main():
     labels = []
     labels += [cat_to_name.get(x) for x in classes]
     
-    # show the results
-    show_results(labels, probs, args.top_k)
+    show_results(labels, probs, args.top_k) # show the results
   
 def predict(image_path, model, topk=5):
     ''' 
@@ -56,8 +67,7 @@ def predict(image_path, model, topk=5):
         logs = model(img.unsqueeze_(0))
         ps = torch.exp(logs)
     
-        #get the top probalities
-        top_p, top_class = ps.topk(topk, dim=1)
+        top_p, top_class = ps.topk(topk, dim=1) #get the top probalities
     
     classes_idx = []
     # map the predicted classes to the class names using category_names
