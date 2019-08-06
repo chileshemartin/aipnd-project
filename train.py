@@ -7,7 +7,7 @@
 #          pytorch pre trained deep models
 #
 #   Example call:
-#    python train.py --save_dir save/ --arch densenet121
+#    python train.py --save_dir save/ --arch vgg
 #
 # Imports python modules
 
