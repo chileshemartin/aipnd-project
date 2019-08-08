@@ -80,8 +80,7 @@ class Classifier:
                 ('output', nn.LogSoftmax(dim=1))
         ]))
         self.model.classifier = classifier
-        
-    # function to load saved state if it exists
+       
     def load_checkpoint(self, save_dir):
         """
         loads the saved model
