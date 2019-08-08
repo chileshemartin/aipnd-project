@@ -1,3 +1,13 @@
+#!usr/bin/env python3
+#
+# PORGAMMER: Martin Chileshe
+# DATE CREATED: 8/8/2019
+# REVISED DATE: 8/8/2019
+# PURPOSE: This module contains all the initialisation code for the model
+# Loading and saving the the trained model is also implemented in this module.
+#
+# modulem imports
+#
 import torch
 from torch import nn, optim
 import torch.nn.functional as F
@@ -73,7 +83,13 @@ class Classifier:
         
     # function to load saved state if it exists
     def load_checkpoint(self, save_dir):
-    
+        """
+        loads the saved model
+        parameters:
+            save_dir - the path to the directory where the model is saved
+        return:
+        None - function does not retunr anything
+        """
         checkpoint = None
         if path.exists(save_dir):
             # load the checkpoint file
@@ -94,7 +110,13 @@ class Classifier:
             pass
  
     def save_checkpoint(self, save_dir, train_datasets):
-        # Save the checkpoint 
+        """
+        saves the trained model and other parameters to disk
+        parameters:
+            save_dir - the directory where the model should be saved
+            train_datasets - the datasets that the model was trained on. 
+                             this param is being used for getting the idx to class mappings
+        """
         self.model.class_to_idx = train_datasets.class_to_idx
     
         # crete custom dictionary to save additional params
