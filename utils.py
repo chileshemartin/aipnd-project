@@ -1,3 +1,13 @@
+#!bin/usr/env python3
+#
+# PROGRAMMER: Martin Chileshe
+# DATE CREATED: 8/8/2019
+# REVISED DATE: 8/8/2019
+# PURPOSE: contains utility functions that facilitate the program operations including
+#          getting the input arguments from the terminal, loading the datasets, processing and showing the image
+#
+# module imports
+#
 import torch
 import numpy as np
 from torchvision import datasets, transforms, models
@@ -29,7 +39,16 @@ def get_input_args():
     return parser.parse_args()
 
 def load_datasets(image_path):
-    
+    """
+    load the datasets from disk and applies transfaomations for prepare for model training
+    Parameters:
+        image_path - the path to the image datsets
+    Returns:
+        train_loader - the loader for the training datasets
+        test_loader - the loader for testing datasets
+        valid_loader - the loader for the validation datasets
+        train_datasets - the training datasets without a loder
+    """
     data_dir = image_path
     train_dir = data_dir + '/train'
     valid_dir = data_dir + '/valid'
@@ -71,11 +90,13 @@ def load_datasets(image_path):
     return train_loader, test_loader, valid_loader, train_datasets
                         
 def process_image(image):
-    ''' Scales, crops, and normalizes a PIL image for a PyTorch model,
-        returns an Numpy array
+    ''' 
+    Scales, crops, and normalizes a PIL image for a PyTorch model
+    Parameters:
+        image - the image to process before prediction
+    Returns:
+        npt_image - a Numpy array of the image that was given
     '''
-    
-    # TODO: Process a PIL image for use in a PyTorch model
     
     # here, we resize to make the shoter side be 256
     width, height = image.size # get dimensions
@@ -108,24 +129,3 @@ def process_image(image):
     # transpose image
     npt_image = np_image.transpose()
     return torch.Tensor(npt_image)
-
-def imshow(image, ax=None, title=None):
-    """Imshow for Tensor."""
-    if ax is None:
-        fig, ax = plt.subplots()
-    
-    # PyTorch tensors assume the color channel is the first dimension
-    # but matplotlib assumes is the third dimension
-    image = image.numpy().transpose((1, 2, 0))
-    
-    # Undo preprocessing
-    mean = np.array([0.485, 0.456, 0.406])
-    std = np.array([0.229, 0.224, 0.225])
-    image = std * image + mean
-    
-    # Image needs to be clipped between 0 and 1 or it looks like noise when displayed
-    image = np.clip(image, 0, 1)
-    
-    ax.imshow(image)
-    
-    return ax
