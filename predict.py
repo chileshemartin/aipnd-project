@@ -43,6 +43,17 @@ def main():
     
     show_results(labels, probs, args.top_k) # show the results
   
+
+def show_results(labels, probs, topk=1):
+    
+    probs = probs.squeeze()
+    print("................................\n"
+          "The top_{} predicted classes with their probabilities are:".format(topk))
+
+    for idx, label in enumerate(labels):
+        print("{}: {:.3f}..".format(label, probs[idx]))
+    print("................................")
+
 def predict(image_path, model, topk=5):
     ''' 
     Predict the class (or classes) of an image using a trained deep learning model.
@@ -77,16 +88,6 @@ def predict(image_path, model, topk=5):
             classes_idx.append(i)
             
     return top_p, classes_idx
-
-def show_results(labels, probs, topk=1):
-    
-    probs = probs.squeeze()
-    print("................................\n"
-          "The top_{} predicted classes with their probabilities are:".format(topk))
-
-    for idx, label in enumerate(labels):
-        print("{}: {:.3f}..".format(label, probs[idx]))
-    print("................................")
 
 if __name__=="__main__":
     main()
