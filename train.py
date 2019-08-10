@@ -12,8 +12,8 @@
 # Imports python modules
 
 import torch
-from workspace_utils import active_session
 import numpy as np
+from workspace_utils import active_session
 from utils import get_input_args, load_datasets
 from classifier import Classifier
 
