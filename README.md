@@ -10,6 +10,7 @@ The user has the option to train the model using the GPU or the CPU just by pass
 ```
 Starts the training program using the gpu if it exists on the host. 10 iterations are made and dir is used as the save and load directory for the model. While starting the program with:
 ```
-    python predict --input file.jpg
+    python predict --input file.jpg --catergory_names category_names.json
 ```
 Performs a prediction on the given input. It uses the trained model on disk to detemine what class this image belongs to.
+The catergory names file conatins a mapping of the indexes to the catergory names.
