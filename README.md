@@ -8,4 +8,8 @@ The user has the option to train the model using the GPU or the CPU just by pass
 ```
     python train.py --gpu --epochs 10 --save_dir dir
 ```
-Starts the training program using the gpu if it exists on the host. 10 iterations are made and dir is used as the save and load directory for the model.
+Starts the training program using the gpu if it exists on the host. 10 iterations are made and dir is used as the save and load directory for the model. While starting the program with:
+```
+    python predict --input file.jpg
+```
+Performs a prediction on the given input. It uses the trained model on disk to detemine what class this image belongs to.
