@@ -2,7 +2,7 @@
 #
 # PROGRAMMER: Martin
 # DATE CREATED: 06/08/2019
-# REVISED DATE: 12/08/2019
+# REVISED DATE: 13/08/2019
 # PURPOSE: To predict the class of flowers the given input belongs to. 
 #          It uses the model trained from the train.py module
 #
