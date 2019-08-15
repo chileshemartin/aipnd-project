@@ -2,7 +2,7 @@
 #
 # PROGRAMMER: Martin Chileshe
 # DATE CREATED: 8/8/2019
-# REVISED DATE: 12/8/2019
+# REVISED DATE: 15/8/2019
 # PURPOSE: contains utility functions that facilitate the program operations including
 #          getting the input arguments from the terminal, loading the datasets, processing and showing the image
 #

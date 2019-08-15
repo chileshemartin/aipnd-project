@@ -2,7 +2,7 @@
 #
 # PROGRAMMER: Martin
 # DATE CREATED: 05/08/2019                               
-# REVISED DATE: 13/08/2019
+# REVISED DATE: 14/08/2019
 # PURPOSE: trains model based on the parameters given in the terminal using one the
 #          pytorch pre trained deep models
 #
