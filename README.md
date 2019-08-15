@@ -5,7 +5,7 @@ This is part of the requirements for completing the Udacity's AI Programming wit
 This project, I build an image classifier using PyTorch, then convert it into a command line application.
 The model can be saved to disk and loaded for usage at a later stage using the pytorch library.
 
-##Requirements
+## Requirements
 This program requires the following modules to execute:
 1. python 3 and later
 2. pytorch 1.2
@@ -16,7 +16,7 @@ This program requires the following modules to execute:
 
 Altenatively, you can use [anconda](https://www.anaconda.com/distribution/) to manage your AI or data science environment.
 
-##Quckstart
+## Quckstart
 The user has the option to train the model using the GPU or the CPU just by passing in the arguement of choice for example starting the program with:
 ```
     python train.py --gpu --epochs 10 --save_dir dir
@@ -28,10 +28,9 @@ Starts the training program using the gpu if it exists on the host. 10 iteration
 Performs a prediction on the given input. It uses the trained model on disk to detemine what class this image belongs to.
 The catergory names file conatins a mapping of the indexes to the catergory names.
 
-##LICENSE
+## LICENSE
 
-This repository and the associated files is available under the below license:
-    MIT License
+This repository and the associated files is available under the below MIT License:
 
     Copyright(c) 2018 Udacity
 
@@ -52,4 +51,3 @@ This repository and the associated files is available under the below license:
     LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
     SOFTWARE.
-
