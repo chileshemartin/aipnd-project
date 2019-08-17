@@ -2,11 +2,11 @@
 #
 # PORGAMMER: Martin Chileshe
 # DATE CREATED: 8/8/2019
-# REVISED DATE: 12/8/2019
+# REVISED DATE: 17/8/2019
 # PURPOSE: This module contains all the initialisation code for the model
 # Loading and saving the the trained model is also implemented in this module.
 #
-# modulem imports
+# module imports
 #
 import torch
 from torch import nn, optim
