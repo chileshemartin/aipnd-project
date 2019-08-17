@@ -28,6 +28,10 @@ Starts the training program using the gpu if it exists on the host. 10 iteration
 Performs a prediction on the given input. It uses the trained model on disk to detemine what class this image belongs to.
 The catergory names file conatins a mapping of the indexes to the catergory names.
 
+## Contributions
+
+To make contributions fork this repository and follow these [guidelines](https://gist.github.com/MarcDiethelm/7303312)
+
 ## LICENSE
 
 This repository and the associated files is available under the below MIT License:
