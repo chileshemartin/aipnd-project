@@ -1,8 +1,8 @@
 # AI Programming with Python Project by Udacity
 
 Final project files for creating an image classifer for 102 different flowers.
-This is part of the requirements for completing the Udacity's AI Programming with Python Nanodegree program.
-This project, I build an image classifier using PyTorch, then convert it into a command line application.
+This is part of the requirements for completing the Udacity's AI Programming with Python Nanodegree.
+Here, I build an image classifier using PyTorch, then convert it into a command line application.
 The model can be saved to disk and loaded for usage at a later stage using the pytorch library.
 
 ## Requirements
