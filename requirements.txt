@@ -1,0 +1,5 @@
+python==3*
+numpy==1.13
+notebook
+pandas
+cudatoolkit
